@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if country_code and coordinate and temp and pressure and humidity %}
+       
+            <h4>Country Code :</span> {{country_code}}</h4>
+            <h4>Coordinates [X,Y] :</span> {{coordinate}}</h4>
+            <h4>Temperature in Celsius :</span> {{temp}}</h4>
+            <h4>Pressure :</span> {{pressure}} </h4>
+            <h4>Humidity : </span> {{humidity}}</h4>
+            {% comment %} <h4><span class="badge badge-primary">Forecast : </span> {{main}} <img
+                src="http://openweathermap.org/img/w/{{icon}}.png" alt="Image" style="width:70px"></h4> {% endcomment %}
+            <h4>Description : </span> {{description}}</h4>
+          
+          {% endif %}
+</body>
+</html>

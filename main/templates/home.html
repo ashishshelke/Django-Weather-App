@@ -1,0 +1,63 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Weather App</title>
+  </head>
+  <body>
+    
+    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+        <div class="container">
+          <a href="../" class="navbar-brand">Weather App <span style="color: rgb(39, 117, 161);"> <strong> - Django
+                Framework</strong>
+            </span> </a>
+          <a href="https://openweathermap.org" class="navbar-tech">OpenWeather - Get Your API</a>
+        </div>
+      </div>
+    
+      <br /><br /> <br>
+      <div id="jumbotron" class="jumbotron" style="text-align: center; margin-top:-50px">
+        <h1 class="display-5">Weather Desktop App </h1>
+        <h5>Using Python Language and Django Framework</h5>
+    
+        <img src="{% static 'images/weather.png' %}" class="image" style="width:100px; margin-bottom:-50px; ">
+      </div>
+    
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <form method="post" class="col-md">
+          {% csrf_token %}
+          <div class=" input-group">
+    
+          <input type="text" class="form-control" name="city" placeholder="Choose Your City ...">
+          <div class="input-group-btn">
+            <button type="submit" class="btn btn-primary">Search</button>
+          </div>
+          </div>
+          <form>
+      </nav>
+      <br> <br>
+   
+      
+      <div class="container">
+      
+          {% if country_code and coordinate and temp and pressure and humidity %}
+              <h3><span>Country Code</span>  : {{country_code}}</h3>
+              <h3><span>Coordinates [X,Y]</span>  : {{coordinate}}</h3>
+              <h3><span>Temperature in Celsius</span>  :{{temp}}</h3>
+              <h3><span>Pressure</span>  :{{pressure}}</h3>
+              <h3><span>Humidity</span>  : {{humidity}}</h3>
+              {% comment %} <h4><span class="badge badge-primary">Forecast : </span> {{main}} <img
+                  src="http://openweathermap.org/img/w/{{icon}}.png" alt="Image" style="width:70px"></h4> {% endcomment %}
+              <h3><span>Description</span> : {{description}}</h3>
+            {% endif %}
+      </div>
+    
+  </body>
+</html>
